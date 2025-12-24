@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+/* 1. Theme Configuration (Tailwind v4) */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Border Radius Mapping */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Color Mapping - links Tailwind classes (bg-primary) to your CSS vars */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  
+  /* Sidebar Mapping */
+  --color-sidebar: var(--sidebar-background);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fadeIn 0.6s ease-out;
+  --animate-slide-up: slideUp 0.6s ease-out;
+  --animate-scale-in: scaleIn 0.4s ease-out;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+}
+
+/* 2. CSS Variables (The "Verma Blogs" Design System) */
+/* IMPORTANT: We wrap values in hsl() so Tailwind v4 reads them correctly */
+:root {
+  /* Design System Values */
+  --radius: 0.75rem;
+
+  /* Core Brand Colors */
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(220 13% 13%);
+
+  /* Corporate Blue Palette */
+  --primary: hsl(217 91% 60%);
+  --primary-foreground: hsl(0 0% 100%);
+  
+  /* Success Green Palette */
+  --success: hsl(142 76% 36%);
+  --success-foreground: hsl(0 0% 100%);
+
+  /* Secondary & Muted */
+  --secondary: hsl(210 40% 96%);
+  --secondary-foreground: hsl(220 13% 13%);
+  --muted: hsl(210 40% 96%);
+  --muted-foreground: hsl(220 9% 46%);
+
+  /* Interactive States */
+  --accent: hsl(217 91% 60% / 0.1);
+  --accent-foreground: hsl(217 91% 60%);
+  
+  /* Destructive */
+  --destructive: hsl(0 84% 60%);
+  --destructive-foreground: hsl(0 0% 100%);
+
+  /* Borders & Inputs */
+  --border: hsl(220 13% 91%);
+  --input: hsl(220 13% 91%);
+  --ring: hsl(217 91% 60%);
+
+  /* Card & Popover */
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(220 13% 13%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(220 13% 13%);
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(142 76% 36%) 100%);
+  --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
+
+  /* Sidebar Variables */
+  --sidebar-background: hsl(0 0% 98%);
+  --sidebar-foreground: hsl(240 5.3% 26.1%);
+  --sidebar-primary: hsl(240 5.9% 10%);
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+  --sidebar-accent: hsl(240 4.8% 95.9%);
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-border: hsl(220 13% 91%);
+  --sidebar-ring: hsl(217 91% 60%);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 hsl(220 13% 13% / 0.05);
+  --shadow-md: 0 4px 6px -1px hsl(220 13% 13% / 0.1), 0 2px 4px -1px hsl(220 13% 13% / 0.06);
+  --shadow-lg: 0 10px 15px -3px hsl(220 13% 13% / 0.1), 0 4px 6px -2px hsl(220 13% 13% / 0.05);
+  --shadow-xl: 0 20px 25px -5px hsl(220 13% 13% / 0.1), 0 10px 10px -5px hsl(220 13% 13% / 0.04);
+}
+
+.dark {
+  /* Core Brand Colors - Dark Mode */
+  --background: hsl(224 71% 4%);
+  --foreground: hsl(213 31% 91%);
+
+  --primary: hsl(217 91% 60%);
+  --primary-foreground: hsl(224 71% 4%);
+
+  --success: hsl(142 76% 36%);
+  --success-foreground: hsl(224 71% 4%);
+
+  --secondary: hsl(215 25% 15%);
+  --secondary-foreground: hsl(213 31% 91%);
+
+  --muted: hsl(215 25% 15%);
+  --muted-foreground: hsl(217 10% 64%);
+
+  --accent: hsl(217 91% 60% / 0.2);
+  --accent-foreground: hsl(217 91% 60%);
+
+  --destructive: hsl(0 84% 60%);
+  --destructive-foreground: hsl(213 31% 91%);
+
+  --border: hsl(215 25% 15%);
+  --input: hsl(215 25% 15%);
+  --ring: hsl(217 91% 60%);
+
+  --card: hsl(224 71% 6%);
+  --card-foreground: hsl(213 31% 91%);
+  --popover: hsl(224 71% 6%);
+  --popover-foreground: hsl(213 31% 91%);
+
+  /* Sidebar Variables - Dark Mode */
+  --sidebar-background: hsl(240 5.9% 10%);
+  --sidebar-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-primary: hsl(224 76% 48%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-border: hsl(240 3.7% 15.9%);
+  --sidebar-ring: hsl(217 91% 60%);
+
+  /* Gradients & Shadows - Dark Mode */
+  --gradient-card: linear-gradient(145deg, hsl(224 71% 6%) 0%, hsl(224 71% 8%) 100%);
+  
+  --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.25);
+  --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.3), 0 2px 4px -1px hsl(0 0% 0% / 0.2);
+  --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.3), 0 4px 6px -2px hsl(0 0% 0% / 0.2);
+  --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.4), 0 10px 10px -5px hsl(0 0% 0% / 0.3);
+}
+
+/* 3. Base Resets */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* 4. Utilities (Ported from your App.css) */
+@layer components {
+  /* Glassmorphism Navigation */
+  .nav-blur {
+    background: var(--nav-background);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* border-bottom: 1px solid var(--border); */
+  }
+
+  /* Gradients */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  /* Shadows (using variables) */
+  .shadow-sm { box-shadow: var(--shadow-sm); }
+  .shadow-md { box-shadow: var(--shadow-md); }
+  .shadow-lg { box-shadow: var(--shadow-lg); }
+  .shadow-xl { box-shadow: var(--shadow-xl); }
+}
