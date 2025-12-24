@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { CheckCircle2, Building2, Users, Trophy, ArrowRight, Hammer, Key, TrendingUp, Home } from 'lucide-react';
 import owner from '@/assets/owner.png'
+
 export default function page() {
   return (
     <div className="min-h-screen bg-background text-foreground pb-20">
 
       {/* --- 1. HERO SECTION --- */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image with Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop"
@@ -16,11 +16,9 @@ export default function page() {
             className="object-cover"
             priority
           />
-          {/* Gradient Overlay using your brand variables */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-800/80 mix-blend-multiply" />
         </div>
 
-        {/* Content */}
         <div className="container relative z-10 px-4 text-center text-white max-w-4xl mx-auto animate-fade-in">
           <span className="inline-block py-1 px-4 rounded-full bg-white/20 backdrop-blur-md text-sm font-semibold mb-6 border border-white/30">
             Est. Since 2010
@@ -39,8 +37,6 @@ export default function page() {
       {/* --- 2. THE FOUNDER SECTION --- */}
       <section className="py-20 container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          
-          {/* Founder Image */}
           <div className="w-full lg:w-1/2 relative">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
               <Image 
@@ -49,18 +45,15 @@ export default function page() {
                 fill
                 className="object-cover"
               />
-              {/* Note: Replace src with actual photo of Mr. Verma */}
             </div>
-            {/* Decorative Element */}
             <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-secondary -z-10 rounded-xl pattern-dots" />
           </div>
 
-          {/* Founder Text */}
           <div className="w-full lg:w-1/2 animate-slide-up">
             <h4 className="text-primary font-bold uppercase tracking-widest text-sm mb-2">The Visionary</h4>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">Chandra Prakash Verma</h2>
             <blockquote className="text-xl text-muted-foreground italic border-l-4 border-primary pl-6 mb-8">
-              &quot;At Verma Properties, we don't just build structures — we build trust, dreams, and futures.&quot;
+              &quot;At Verma Properties, we don&apos;t just build structures — we build trust, dreams, and futures.&quot;
             </blockquote>
             <p className="text-muted-foreground mb-6 leading-7">
               Founded by Chandra Prakash Verma, a visionary leader with a relentless passion for excellence, 
@@ -109,7 +102,7 @@ export default function page() {
         </div>
       </section>
 
-      {/* --- 4. WHAT WE DO (Services) --- */}
+      {/* --- 4. WHAT WE DO --- */}
       <section className="py-24 bg-secondary/30">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
@@ -121,7 +114,6 @@ export default function page() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Card 1 */}
             <div className="bg-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-border group">
               <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                 <Home className="w-7 h-7" />
@@ -132,7 +124,6 @@ export default function page() {
               </p>
             </div>
 
-            {/* Card 2 */}
             <div className="bg-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-border group relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
                 Expertise
@@ -146,7 +137,6 @@ export default function page() {
               </p>
             </div>
 
-            {/* Card 3 */}
             <div className="bg-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-border group">
               <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                 <Key className="w-7 h-7" />
@@ -163,7 +153,6 @@ export default function page() {
       {/* --- 5. WHY CHOOSE US --- */}
       <section className="py-20 container mx-auto px-4">
         <div className="bg-foreground text-background rounded-3xl p-8 md:p-16 relative overflow-hidden">
-          {/* Abstract BG Shapes */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
           
           <div className="flex flex-col md:flex-row gap-12 relative z-10">
@@ -171,7 +160,7 @@ export default function page() {
               <h3 className="text-primary font-bold uppercase tracking-wider mb-2">Our Promise</h3>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Why Verma Properties?</h2>
               <p className="text-gray-400 text-lg">
-                Whether you're looking to buy, sell, invest, or build, Verma Properties provides complete, transparent, and reliable solutions.
+                Whether you&apos;re looking to buy, sell, invest, or build, Verma Properties provides complete, transparent, and reliable solutions.
               </p>
               
               <button className="mt-8 px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors flex items-center gap-2">
