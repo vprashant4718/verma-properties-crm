@@ -9,7 +9,7 @@ import "../globals.css"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 
-  const [user, setUser] = useState(false);
+  const [user] = useState(false);
   const router = useRouter();
 
     useEffect(()=>{
