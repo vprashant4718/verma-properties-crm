@@ -60,7 +60,7 @@ export default function page() {
             <h4 className="text-primary font-bold uppercase tracking-widest text-sm mb-2">The Visionary</h4>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">Chandra Prakash Verma</h2>
             <blockquote className="text-xl text-muted-foreground italic border-l-4 border-primary pl-6 mb-8">
-              "At Verma Properties, we don't just build structures — we build trust, dreams, and futures."
+              &quot;At Verma Properties, we don't just build structures — we build trust, dreams, and futures.&quot;
             </blockquote>
             <p className="text-muted-foreground mb-6 leading-7">
               Founded by Chandra Prakash Verma, a visionary leader with a relentless passion for excellence, 
