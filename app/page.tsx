@@ -1,4 +1,3 @@
-import Navbar from "@/app/_components/navbar"
 import Footer from "@/app/_components/Footer"
 import Hero from "@/app/_components/Hero"
 import BlogsSection from "./_components/BlogsSection";

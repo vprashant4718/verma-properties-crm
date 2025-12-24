@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Calendar, Clock, ArrowLeft, Share2, Facebook, Twitter, Linkedin, Tag } from 'lucide-react';
+import Image from 'next/image';
 
 // --- MOCK DATA (In a real app, fetch this from a DB) ---
 const allPosts = [
@@ -36,9 +37,10 @@ const allPosts = [
   // You can add more mock posts here...
 ];
 
-export default function page({ params }: { params: { slug: string } }) {
+export default async function page({ params }: { params:Promise<{ slug: string }> }) {
   // 1. Find the post matching the slug
-  const post = allPosts.find((p) => p.slug === params.slug);
+  const Slug = await params;
+  const post = allPosts.find((p) => p.slug ===  Slug.slug);
 
   // 2. Handle 404
   if (!post) {
@@ -91,10 +93,12 @@ export default function page({ params }: { params: { slug: string } }) {
       {/* --- Featured Image --- */}
       <div className="container mx-auto px-4 max-w-5xl mb-12 animate-scale-in">
         <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl border border-border/50 bg-secondary">
-          <img 
+          <Image 
             src={post.image} 
             alt={post.title}
-            className="w-full h-full object-cover"
+            width={800} 
+            height={400} 
+            className="w-full h-full object-cover rounded-lg"
           />
         </div>
       </div>
